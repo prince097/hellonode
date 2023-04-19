@@ -7,15 +7,14 @@ node {
         checkout scm
     }
 
-    stage('Build image') {
-        /* This builds the actual image; synonymous to
-         * docker build on the command line */
-                            steps {
-                                dir(pwd()) {
-                                    app = docker.build("princy/hellonode")
-                                }
-                            }
-    }
+    stages {
+        stage('Build image') {
+            steps {
+                dir(pwd()) {
+                    sh 'docker build -t princy/hellonode .'
+                }
+            }
+        }
 
     stage('Test image') {
         /* Ideally, we would run a test framework against our image.
