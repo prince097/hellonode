@@ -10,8 +10,11 @@ node {
     stage('Build image') {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
-
-        app = docker.build("princy/hellonode")
+                            steps {
+                                dir(pwd()) {
+                                    app = docker.build("princy/hellonode")
+                                }
+                            }
     }
 
     stage('Test image') {
