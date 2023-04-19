@@ -19,20 +19,21 @@ node {
          * For this example, we're using a Volkswagen-type approach ;-) */
 
         app.inside {
-            bat 'echo "Tests passed"'
+            app=docker.run("princy/hellonode")
+//             bat 'echo "Tests passed"'
         }
     }
 
-    stage('Push image') {
-        /* Finally, we'll push the image with two tags:
-         * First, the incremental build number from Jenkins
-         * Second, the 'latest' tag.
-         * Pushing multiple tags is cheap, as all the layers are reused. 
-         *docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials'*/
-           sh 'sudo docker login -u "upasanatestdocker" -p "Zephyr@17" docker.io'
+//     stage('Push image') {
+//         /* Finally, we'll push the image with two tags:
+//          * First, the incremental build number from Jenkins
+//          * Second, the 'latest' tag.
+//          * Pushing multiple tags is cheap, as all the layers are reused. 
+//          *docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials'*/
+//            sh 'sudo docker login -u "upasanatestdocker" -p "Zephyr@17" docker.io'
                
-            app.push("${env.BUILD_NUMBER}")
-            app.push("latest")
+//             app.push("${env.BUILD_NUMBER}")
+//             app.push("latest")
         
-    }
+//     }
 }
