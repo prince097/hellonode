@@ -9,7 +9,7 @@ node {
 
     stage('Build image') {
                 dir(pwd()) {
-                    sh 'docker build -t princy/hellonode .'
+                    app = docker.build("princy/hellonode")
             }
 
     stage('Test image') {
