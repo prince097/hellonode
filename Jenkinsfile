@@ -8,10 +8,8 @@ node {
     }
 
     stage('Build image') {
-            steps {
                 dir(pwd()) {
                     sh 'docker build -t princy/hellonode .'
-                }
             }
 
     stage('Test image') {
