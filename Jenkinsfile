@@ -7,14 +7,12 @@ node {
         checkout scm
     }
 
-    stages {
-        stage('Build image') {
+    stage('Build image') {
             steps {
                 dir(pwd()) {
                     sh 'docker build -t princy/hellonode .'
                 }
             }
-        }
 
     stage('Test image') {
         /* Ideally, we would run a test framework against our image.
