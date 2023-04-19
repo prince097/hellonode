@@ -8,7 +8,7 @@ node {
     }
 
     stage('Build image') {
-                dir(pwd()) {
+
                     app = docker.build("princy/hellonode")
             }
 
