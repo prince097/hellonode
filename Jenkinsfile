@@ -9,18 +9,18 @@ node {
 
     stage('Build image') {
 
-                    app = docker.build("princy/hellonode")
+                    app = docker.build("princy/hellonode3")
             }
 
-    stage('Test image') {
-        /* Ideally, we would run a test framework against our image.
-         * For this example, we're using a Volkswagen-type approach ;-) */
+//     stage('Test image') {
+//         /* Ideally, we would run a test framework against our image.
+//          * For this example, we're using a Volkswagen-type approach ;-) */
 
-        app.inside {
-            app=docker.run("princy/hellonode")
-//             bat 'echo "Tests passed"'
-        }
-    }
+//         app.inside {
+//             app=docker.run("princy/hellonode")
+// //             bat 'echo "Tests passed"'
+//         }
+//     }
 
 //     stage('Push image') {
 //         /* Finally, we'll push the image with two tags:
