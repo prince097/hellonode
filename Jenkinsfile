@@ -10,7 +10,6 @@ node {
     stage('Build image') {
 
                     app = docker.build("princy/hellonode3")
-                    app=docker.run("princy/hellonode")
             }
 
 //     stage('Test image') {
